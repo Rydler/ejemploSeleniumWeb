@@ -40,6 +40,8 @@ public class AppTest
     public void buscarProductoCorrecto()
     {
         System.out.println("Iniciando buscarProductoCorrecto()");
+        driver.manage().window().setPosition(new Point(200, 200));
+
         driver.navigate().to("https://www.google.com");
         WebElement searchbox = driver.findElement(By.name("q"));
         searchbox.sendKeys("HandBook Devops");
@@ -51,6 +53,8 @@ public class AppTest
     public void obtenerDetalleProducto()
     {
         System.out.println("Iniciando obtenerDetalleProducto()");
+        driver.manage().window().setPosition(new Point(220, 220));
+
         driver.navigate().to("https://www.google.com");
         WebElement searchbox = driver.findElement(By.name("q"));
         searchbox.sendKeys("HandBook Devops");
@@ -68,6 +72,8 @@ public class AppTest
     public void navegarPorAmazon()
     {
         System.out.println("Iniciando navegarPorAmazon()");
+        driver.manage().window().setPosition(new Point(240, 240));
+
         driver.navigate().to("https://www.amazon.com");
         WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
         searchbox.sendKeys("The Phoenix Project");
