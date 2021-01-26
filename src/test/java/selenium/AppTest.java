@@ -33,14 +33,14 @@ public class AppTest
         driver.manage().window().setPosition(new Point(200, 200));
         //System.out.println("URL: " + driver.getCurrentUrl());
         //System.out.println("Title: " + driver.getTitle());
-        driver.navigate().to("https://www.google.com");
+        //driver.navigate().to("https://www.google.com");
     }
 
     @Test
     public void buscarProductoCorrecto()
     {
-        System.out.println("Iniciando buscarProductoCorrecto");
-        //driver.navigate().to("https://www.google.com");
+        System.out.println("Iniciando buscarProductoCorrecto()");
+        driver.navigate().to("https://www.google.com");
         WebElement searchbox = driver.findElement(By.name("q"));
         searchbox.sendKeys("HandBook Devops");
         searchbox.submit();
@@ -50,8 +50,8 @@ public class AppTest
     @Test
     public void obtenerDetalleProducto()
     {
-        System.out.println("Iniciando obtenerDetalleProducto");
-        //driver.navigate().to("https://www.google.com");
+        System.out.println("Iniciando obtenerDetalleProducto()");
+        driver.navigate().to("https://www.google.com");
         WebElement searchbox = driver.findElement(By.name("q"));
         searchbox.sendKeys("HandBook Devops");
         searchbox.submit();
@@ -62,6 +62,18 @@ public class AppTest
         List<WebElement> imagenes = contenedorImagenes.findElements(By.tagName("a"));
         imagenes.get(0).click();
         assertNotNull(imagenes.get(0));
+    }
+
+    @Test
+    public void navegarPorAmazon()
+    {
+        System.out.println("Iniciando navegarPorAmazon()");
+        driver.navigate().to("https://www.amazon.com");
+        WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
+        searchbox.sendKeys("The Phoenix Project");
+        searchbox.submit();
+
+        assertEquals("Amazon.com : The Phoenix Project", driver.getTitle().trim());
     }
 
 }
